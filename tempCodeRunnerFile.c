@@ -1,1 +1,2 @@
-srand(time(0));
+p[i] = s[length - i]; 
+        printf("%s", p);
