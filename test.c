@@ -1,14 +1,7 @@
 #include <stdio.h>
-
+#define _USE_MATH_DEFINES
+#include <math.h>
 int main()
 {
-    char a='0';
-    if(a)
-    {
-        printf("cat");
-    }
-    else
-    {   
-        printf("dog");
-    }
+    printf("%f",M_PI);
 }
