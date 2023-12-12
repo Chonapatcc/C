@@ -3,5 +3,7 @@
 #include <math.h>
 int main()
 {
-    printf("%f",M_PI);
+    int a=1;
+
+    
 }
