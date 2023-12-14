@@ -1,1 +1,1 @@
-printf("%d\n",a);
+int a;
