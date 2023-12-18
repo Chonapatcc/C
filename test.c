@@ -1,9 +1,14 @@
 #include <stdio.h>
+int cat();
+
 
 int main()
 {
-    char a[]="123" , b[]="cat" ;
-
-    printf("%d\n",a);
-    printf("%d\n",atoi(b));
+    int x=1,y=2;
+    cat();
+}
+int x=1,y=2;
+int cat()
+{
+    return x+y;
 }
