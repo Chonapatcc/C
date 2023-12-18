@@ -6,7 +6,11 @@ int main()
     char temp[100];
     fgets(temp,100,stdin);
     int a=atoi(temp);
-
+    if(a<=0 || a>26)
+    {
+        printf("-");
+        return 0;
+    }
     for(int i =a-1;i>=0 ; i--)
     {
         printf("%c",97+i);
@@ -21,9 +25,6 @@ int main()
         printf("-%c",97+i);
 
     }
-    if(a<=0)
-    {
-        printf("-");
-    }
+    
 
 }
