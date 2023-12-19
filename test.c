@@ -1,14 +1,10 @@
 #include <stdio.h>
-int cat();
-
+#define && = and;
 
 int main()
 {
-    int x=1,y=2;
-    cat();
-}
-int x=1,y=2;
-int cat()
-{
-    return x+y;
+    lp(10)
+    {
+        printf("wow\n");
+    }
 }
