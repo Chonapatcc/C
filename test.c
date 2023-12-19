@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define && = and;
+
 
 int main()
 {
