@@ -1,44 +1,38 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 int main()
 {
-    char a[100];
+    char temp[100];
     printf("Enter your goal amount: ");
-
-    fgets(a,100,stdin);
-
-    double goal=atoi(a),sum=0,temp;
-
+    fgets(temp,100,stdin);
+    double goal=atof(temp),sum=0,dif;
     int day=0;
 
     while(sum<goal)
     {
-        if(day>0)
+        if(sum!=0)
         {
-            printf("\n");
+            printf("Total money collected up to day %d is %.2f. You need %.2f more.\n",day,sum,dif);
         }
+        char temp2[100];
         printf("Enter money collected today: ");
-        fgets(a,100,stdin);
-        double val=atof(a);
-        if(val<=0)
-        {
-            continue;
-        }
-        sum+=val;
+        fgets(temp2,100,stdin);
+    
+        double in=atof(temp2);
+  
+        sum+=in;
         day++;
-        if(sum>=goal)
-        {
-            break;
-        }
-        printf("Total money collected up to day %d is %.2f. You need %.2f more.",day,sum,goal-sum);
+        dif=goal-sum;
+        
     }
-    char s='\0';
-    if(day!=1)
+
+    if(day==1)
     {
-        s='s';
+        printf("Congratulations! You take %d day to reach your goal.",day);
+    }
+    else
+    {
+        printf("Congratulations! You take %d days to reach your goal.",day);
     }
 
-
-    printf("Congratulations! You take %d day%c to reach your goal.",day,s);
 }
