@@ -1,10 +1,9 @@
 #include <stdio.h>
+#include <math.h>
 
 
 int main()
 {
-    lp(10)
-    {
-        printf("wow\n");
-    }
+    
+    
 }
