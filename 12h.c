@@ -4,7 +4,7 @@
 int main()
 {
     printf("Enter a 12-hour time [eg. 12:34 am]: ");
-    char a[10],temp[3]={0,0}; 
+    char a[10],temp[]="  "; 
     fgets(a,10,stdin);
     int c=0,h,m;
     for(int i=0 ; i<10 ; i ++ )
@@ -13,12 +13,17 @@ int main()
         if(a[i]==':')
         {
             h=atoi(temp);
+            temp[0]=' ';
+            temp[1]=' ';
+
             c=0;
             continue;
         }
         if(a[i]==' ')
         {
             m=atoi(temp);
+            temp[0]=' ';
+            temp[1]=' ';
             c=0;
             continue;
         }
@@ -31,20 +36,10 @@ int main()
         temp[c++]=a[i];
     }
 
+    h%=12;
     if(tolower(temp[0])=='p')
     {
         h+=12;
-        if(h>=24)
-        {
-            h-=12;
-        }
-    }
-    else
-    {
-        if(h>=12)
-        {
-            h-=12;
-        }
     }
     
 
