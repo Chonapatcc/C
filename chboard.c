@@ -1,4 +1,12 @@
-int n,sp;
+#include <stdio.h>
+
+#define BOARD_SIZE 8
+
+void setPieceOnTable(int board[][BOARD_SIZE], char piece, int xPos, int yPos);
+
+int main()
+{
+    int n,sp;
     scanf("%d",&n);
     scanf("%d",&sp);
     //create board 
@@ -13,7 +21,7 @@ int n,sp;
     
     //input
     char temp[10];
-    for(int i=0 ; i< 4 ; i++)
+    for(int i=0 ; i< n ; i++)
     {
         fgets(temp,10,stdin);
         int x=temp[2]-'0',y=temp[5]-'0';
@@ -42,3 +50,10 @@ int n,sp;
         }
         printf("\n");
     }
+
+}
+
+void setPieceOnTable(int board[][BOARD_SIZE], char piece, int xPos, int yPos )
+{
+    board[yPos][xPos]=piece;
+}

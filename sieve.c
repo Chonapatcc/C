@@ -9,6 +9,28 @@ int main()
 
     for (i = 2; i < ARRAY_SIZE; i++)
         A[i] = 1;
-    
+
+    for(i=2 ;i<ARRAY_SIZE ; i++)
+    {
+        if(A[i])
+        {
+            for(j=i+1 ; j<ARRAY_SIZE ; j++ )
+            {
+                if(j%i==0)
+                {
+                    A[j]=0;
+                }
+            }  
+        }
+        
+    }
+    for (i = 2; i < ARRAY_SIZE; i++)
+    {
+        if(A[i])
+            printf("%d ",i);
+    }
+    printf("\n");
+
+    return 0;
 
 }

@@ -4,10 +4,14 @@
 
 int main()
 {
-    
-    int arr[10] =  {} ;
-    for(int i=0 ; i< 10 ; i++)
+    int a[]={1,2,3,4};
+
+    int* p =&a[0];
+    int x,y;
+    for(int i=0 ; i< 4; i ++,*p++)
     {
-        printf("%c\n", arr[i]);
+        printf("%d\n",*p);
     }
+
+    
 }
