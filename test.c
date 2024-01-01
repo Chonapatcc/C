@@ -4,19 +4,17 @@
 
 int main()
 {
-    int a[]={1,2,3,4};
+    char t[100];
 
-    int *p =&a[0], *end=&a[3];
-    int x,y;
-    for(int i=0 ; i< 8;i++)
+    fgets(t,100,stdin);
+
+    for(int i=0 ; i<sizeof(t)/sizeof(t[0]) ;i++)
     {
-        if(p>end)
+        if(t[i]=='\n')
         {
-            p-=4;
+           break;
         }
-        printf("%d\n",*p);
-        p++; 
+        printf("%c" ,t[i]);
     }
-
     
 }
