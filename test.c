@@ -2,19 +2,25 @@
 #include <math.h>
 
 
-int main()
+struct account
 {
-    char t[100];
+    int number ;
+    float balance;
+};
 
-    fgets(t,100,stdin);
 
-    for(int i=0 ; i<sizeof(t)/sizeof(t[0]) ;i++)
-    {
-        if(t[i]=='\n')
-        {
-           break;
-        }
-        printf("%c" ,t[i]);
-    }
+int main()
+{   
     
+    struct account act_list[3]=
+    {
+        act_list[0],act_list[1] , act_list[2]
+    };
+
+    printf("%d" ,act_list[2].number);
+
+
+
+    
+
 }
