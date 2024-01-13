@@ -1,21 +1,19 @@
 #include <stdio.h>
 #include <math.h>
 
-unsigned char zero(int d)
+void cat(int arr[])
 {
-    int c;
-    if((c=getchar())==EOF)
-        return d;
-    else
-        return zero(d+(c>='0' && c<='9'))+(c=='0');
+    arr[1]=10;
 }
 
 
 int main()
 {
-    int arr[10]={1,2,3};
+    int a=5;
 
-    int *p=arr[0];
-
+    if((a>0 && a!=7)||(a<0 && a!=-7))
+    {
+        printf("wow");
+    }
 
 }
