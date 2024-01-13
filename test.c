@@ -1,26 +1,21 @@
 #include <stdio.h>
 #include <math.h>
 
-
-struct account
+unsigned char zero(int d)
 {
-    int number ;
-    float balance;
-};
+    int c;
+    if((c=getchar())==EOF)
+        return d;
+    else
+        return zero(d+(c>='0' && c<='9'))+(c=='0');
+}
 
 
 int main()
-{   
-    
-    struct account act_list[3]=
-    {
-        act_list[0],act_list[1] , act_list[2]
-    };
+{
+    int arr[10]={1,2,3};
 
-    printf("%d" ,act_list[2].number);
+    int *p=arr[0];
 
-
-
-    
 
 }
