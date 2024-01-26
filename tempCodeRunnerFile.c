@@ -1,1 +1,1 @@
-stdin
+char old[size]; 
