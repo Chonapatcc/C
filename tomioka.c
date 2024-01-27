@@ -2,51 +2,59 @@
 void roman2arabic(char input[],char output[])
 {
     char ara1[3]="IVX";
-    char list[][4]={"I","II","III","IV","V","VI","VII","VIII","IX"};
-    char text[10]={};
-    int idtext=0;
+    int val[3]={1,5,10};
+    
     char temp[80];
     int idtemp=0;
-
+    
+    int count =0;
     for(int i =0 ; input[i]!='\0';i++)
     {
         int ch=1;
-        for(int y=0 ;y<3; y++)
+        int x=0;
+        for(int loop3 = 0 ; loop3<3;loop3++)
         {
-            if(input[i]==ara1[y])
+            if(input[i]==ara1[loop3])
             {
-                text[idtext++] = input[i];
                 ch=0;
+                x=val[loop3];
                 break;
             }
         }
+        if(count >= x)
+        {
+            count +=x;
+        }
+        else
+        {
+            count = x-count;
+        }
         if(ch)
         {
-            if(idtext>0)
+            if(count > 0)
             {
-                printf("%s\n",text);
-            }
-            for(int re =0 ;re<idtext;re++)
-            {
-                text[re]=0;
-            }
-            idtext=0;
+                temp[idtemp++] = count +'0';
 
-            temp[idtemp++]=
+                count =0 ;
+            }
 
+            temp[idtemp++] = input[i];
         }
     }
-    if(idtext>0)
+    if(count >0)
     {
-    
-        printf("%s\n",text);
+        temp[idtemp++] = count +'0';
+        count =0 ;
     }
-    
+    temp[idtemp]= '\0';
 
-    
-    
-
-
+    // replace
+    for(int i=0 ; i<idtemp; i++)
+    {
+        output[i] = temp[i];
+    }
+    output[idtemp]= '\0';
+   
 }
 
 int main()
