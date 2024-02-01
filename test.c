@@ -1,13 +1,19 @@
 #include <stdio.h>
 #include <math.h>
 
-
+typedef struct
+{
+  char id[12];
+  int midterm;
+  int final;
+  char grade;
+}StudentRecord;
 
 
 int main()
 {
-    char text[10];
+    StudentRecord cat;
 
-    text= "CAt";
+    printf("%s",cat.final);
 
 }
