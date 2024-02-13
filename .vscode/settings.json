@@ -1,6 +1,14 @@
 {
     "C_Cpp.default.compilerPath": "d:\\MSYS2\\mingw64\\bin\\gcc.exe",
     "files.associations": {
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "array": "c",
+        "any": "c",
+        "string_view": "c",
+        "ranges": "c",
+        "span": "c",
+        "stacktrace": "c",
+        "regex": "c",
+        "type_traits": "c"
     }
 }

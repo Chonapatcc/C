@@ -15,36 +15,66 @@ typedef struct __Node node;
 
 void printList(node *pList) 
 {
-    for(int i =0 ; i<10 ;i++)
+    while(pList!=NULL)
     {
         printf("%d ",pList->value);
         pList=pList->next;
-        printf("cat\n");
+
     }
 }
 
-void insertNode(node **head,int val,int index) 
+void insertNode(node **pList,int val) 
 {
-    
-    node *newNode = (node *) malloc (sizeof (node));
+    //create new node
+    node *newnode = (node *)malloc(sizeof(node));
+    newnode->value = val;
+    newnode ->next = NULL;
 
-    newNode->value = val;
-    newNode->next = NULL;
-
-
-    //need this if there is no node present in linked list at all
-    if (*head == NULL)
+    // if first node ==NULL;
+    if (*pList==NULL)
     {
-        *head = newNode;
+        *pList = newnode ; 
         return;
+        
     }
 
-    node *temp = *head; // #######
+    // insert start;
+    if(val<(*pList)->value)
+    {
+        newnode->next = *pList;
+        (*pList)->prev = newnode;
 
-    while (temp->next != NULL)
-        temp = temp->next;
+        *pList = newnode;
+        return ; 
+    }
 
-    temp->next = newNode;
+    node *temp = *pList;
+
+    //insert mid and last;
+    while(1)
+    {
+        
+        if (val< temp->value)  //insert;
+        {
+            newnode->next = temp;
+            newnode->prev = temp->prev;
+
+            temp->prev->next= newnode;
+            temp->prev = newnode;
+            return ;
+        }
+        else if(temp->next == NULL) //add
+        {
+            temp->next = newnode;
+            newnode->prev = temp;
+            return ;
+        }
+        else
+        {
+            temp = temp->next;
+        }
+    }
+    
 
 }
 
@@ -55,7 +85,7 @@ int main() {
     for (i = 0; i < 10; i++) 
     {
         scanf(" %d", &value);
-        insertNode(&pList,value,i);
+        insertNode(&pList,value);
 
     }
 

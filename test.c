@@ -2,18 +2,21 @@
 #include <math.h>
 #include <string.h>
 
-struct __Node
-{
-  int data;
-  struct __Node *next;
-}
-typedef struct __Node Node;
-typedef Node *List;
 int main()
 {
-  char* arr[9] = { "Hello", [1 ... 7] = "JournalDev", "Hi" };
-    for (int i=0; i<9; i++)
-      printf("%s\n", arr[i]);
-    return 0;
+  FILE *file= fopen("scores.txt","r");
+  double anum;
+  int x;
+  int c=0;
+  while (x=fscanf(file,"%lf",&anum))
+  {
+      if(c>10)
+      {
+        break;
+      }
+      printf("%lf %d\n",anum,x);
+      c++;
+  }
+
 
 }

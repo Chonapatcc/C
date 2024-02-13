@@ -1,1 +1,1 @@
-temp->next = newNode;
+stock-log-20170401.txt
