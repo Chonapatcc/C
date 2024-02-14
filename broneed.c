@@ -22,23 +22,20 @@ void reportStock(char *filename)
 {
     FILE *file= fopen(filename,"r");
     int number;
-    char text[100];
+    char text[1000];
     
-    fgets(text,100,file);
+    fgets(text,1000,file);
     number = atoi(text);
     
-    char temp[100];
-    char name[100];
+    char temp[1000];
+    char name[1000];
     int amount;
     double cost; 
-    Product stock[number];
-    for(int i= 0; i<number;i++)
-    {
-        strcpy(stock[i].name,"empty");
-
-    }
+    char list[5][100];
+    Product stock[number+1];
+    int cstock=0;
     
-    while(fgets(text,100,file))
+    while(fgets(text,1000,file))
     {   //stock-log-20170401.txt
         //20170401,12:54:00,T Shirt L,1,120.00
         char *token;
@@ -46,21 +43,17 @@ void reportStock(char *filename)
         int c=0;
         while( token != NULL ) 
         {
-            if (c==2)
-            {
-                strcpy(name,token);
-            }
-            else if(c==3)
-            {
-                amount = atoi(token);
-            }
-            else if (c==4);
-            {
-                cost = atof(token);
-            }
+            strcpy(list[c],token);
             
             token = strtok(NULL, ",");
             c++;
+        }
+        strcpy(name,list[2]);
+        amount = atoi(list[3]);
+        cost = atof(list[4]);
+        if(amount==0 || cost==0 ||(strstr(list[0],"20170401")==NULL))
+        {
+            continue;
         }
         for(int i =0 ; i<number ; i++)
         {
@@ -70,18 +63,19 @@ void reportStock(char *filename)
                 stock[i].totalCost+=cost;
                 break;
             }
-            else if (strstr(stock[i].name,"empty"))
+            else if (i==cstock)
             {
                 strcpy(stock[i].name,name);
                 stock[i].amount= amount;
                 stock[i].totalCost=cost;
+                cstock++;
                 break;
             }
         }
 
     }
     printStock(stock,number);
-
+    fclose(file);
 
 }
 

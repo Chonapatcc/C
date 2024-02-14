@@ -4,19 +4,6 @@
 
 int main()
 {
-  FILE *file= fopen("scores.txt","r");
-  double anum;
-  int x;
-  int c=0;
-  while (x=fscanf(file,"%lf",&anum))
-  {
-      if(c>10)
-      {
-        break;
-      }
-      printf("%lf %d\n",anum,x);
-      c++;
-  }
-
+  printf("%d",strstr("20170d1","20170401")!=NULL);
 
 }

@@ -1,1 +1,2 @@
-stock-log-20170401.txt
+
+    FILE *file= fopen(filename,"r");

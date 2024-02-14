@@ -9,6 +9,7 @@
         "span": "c",
         "stacktrace": "c",
         "regex": "c",
-        "type_traits": "c"
+        "type_traits": "c",
+        "list": "c"
     }
 }
