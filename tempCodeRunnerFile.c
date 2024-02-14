@@ -1,2 +1,1 @@
-
-    FILE *file= fopen(filename,"r");
+10[^,]

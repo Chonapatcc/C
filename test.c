@@ -4,6 +4,11 @@
 
 int main()
 {
-  printf("%d",strstr("20170d1","20170401")!=NULL);
+  char cat[] = "   ^cart123bro";
 
+  char dog[10];
+
+  sscanf(cat,"%[^\n]s",dog);
+
+  printf("%s" , dog);
 }
