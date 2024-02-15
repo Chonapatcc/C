@@ -2,8 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-typedef struct _product 
-{
+typedef struct _product {
     char name[30];
     int amount;
     double totalCost;
@@ -18,62 +17,42 @@ void printStock(Product stock[], int nStock)
             stock[i].name, stock[i].amount, stock[i].totalCost);
     }
 }
+
 void reportStock(char *filename)
 {
     FILE *fp = fopen(filename, "r");
-
-    char text[100]="";
-    char temp[100]="";
-   
-    int items ;
-    fscanf(fp,"%d\n",&items);
-    int num_items=0;
-    Product stocks[100];
-    for(int i =0 ; i<items ;i++)
-    {
-        Product *sto0 = (Product *)malloc(sizeof(Product)); 
-        stocks[i] = *sto0; 
-    }
-    
-    char day[10], time[10], name[30];
-    int amount;
+    char day[11], time[11], name[30];
+    int nStock,num_items=0,amount;
     double cost;
-    while (fgets(text,100,fp)!=NULL)
-    {
-        //printf("%s",text);
-        sscanf(text, "%10[^,],%10[^,],%30[^,],%d,%lf\n", day, time, name, &amount, &cost);
-        
-        if(!strstr(day,"20170401"))
+    fscanf(fp,"%d\n",&nStock);
+    Product stock[nStock];
+    while (fscanf(fp,"%*[^,],%*[^,],%29[^,],%d,%lf", name, &amount, &cost)>0)
+    {   
+        //printf("%d\n",fscanf(fp,"%10[^,],%10[^,],%30[^,],%d,%lf", day, time, name, &amount, &cost));
+        int i =0 ;
+        while(1)
         {
-            continue;
-        }
-
-        //printf("%s|%d|%lf\n" , name,amount,cost);
-        for(int i = 0 ; i<100;i++)
-        {
-
             if(i==num_items)
             {
-                strcpy(stocks[i].name,name);
-                stocks[i].amount=amount;
-                stocks[i].totalCost=cost;
+                strcpy(stock[i].name,name);
+                stock[i].amount=amount;
+                stock[i].totalCost=cost;
                 num_items++;
                 break;
             }
-            else if(strstr(stocks[i].name,name))
+            else if(strstr(stock[i].name,name))
             {
-                stocks[i].amount+=amount;
-                stocks[i].totalCost+=cost;
+                stock[i].amount+=amount;
+                stock[i].totalCost+=cost;
                 break;
             }
+            i++;
         }
-
     }
-
-    printStock(stocks, items);
+    printStock(stock, nStock); 
     fclose(fp);
-
 }
+
 
 
 int main()

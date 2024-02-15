@@ -4,11 +4,9 @@
 
 int main()
 {
-  char cat[] = "   ^cart123bro";
-
-  char dog[10];
-
-  sscanf(cat,"%[^\n]s",dog);
-
-  printf("%s" , dog);
+  char *cat = "20170401,12:54:00,T Shirt L,1,120.00";
+  //int x;
+  //x = strcmp("dogcat","e");
+  
+  
 }
