@@ -40,7 +40,7 @@ void reportStock(char *filename)
                 num_items++;
                 break;
             }
-            else if(strstr(stock[i].name,name))
+            else if(strcmp(stock[i].name,name)==0)
             {
                 stock[i].amount+=amount;
                 stock[i].totalCost+=cost;
