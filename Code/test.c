@@ -4,9 +4,14 @@
 
 int main()
 {
-  char *cat = "20170401,12:54:00,T Shirt L,1,120.00";
-  //int x;
-  //x = strcmp("dogcat","e");
+  char string[] = "Cat is good dog is bad";
+  char *ptr = strtok(string," ");
+
+  while(ptr!= NULL)
+  {
+    printf("%s\n" ,ptr);
+    ptr = strtok(NULL," ");
+  }
   
   
 }
